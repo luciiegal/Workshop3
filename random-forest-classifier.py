@@ -18,8 +18,5 @@ rf_classifier = RandomForestClassifier(n_estimators=100, random_state=42)
 rf_classifier.fit(X_train, y_train)
 
 # Make predictions on the test set
-y_pred = rf_classifier.predict(X_test)
-
-# Calculate the accuracy of the classifier
-accuracy = accuracy_score(y_test, y_pred)
-print("Accuracy:", accuracy)
+y_pred = rf_classifier.predict_proba(X_test)
+print("Predictions:", y_pred)
