@@ -16,17 +16,17 @@ rf_classifier = RandomForestClassifier(n_estimators=100, random_state=42)
 rf_classifier.fit(X_train, y_train)
 
 y_pred = rf_classifier.predict_proba(X_test)
-print("Predictions:", y_pred)
+print('Predictions:', y_pred)
 
 
 app = Flask(__name__)
 
 @app.route("/")
 def read_root():
-    return render_template("base.html")
+    return render_template('base.html')
 
 
-@app.route("/predict/")
+@app.route('/predict/')
 def make_prediction():
     try:
         L1 = float(request.args.get('L1'))
@@ -46,9 +46,9 @@ def make_prediction():
         #return render_template("prediction.html", probabilities=probabilities, predicted=predicted, probability=probability)
     
     except Exception as e:
-        return jsonify({"error": str(e)})
+        return jsonify({'error': str(e)})
         #return f"Error: {str(e)}"
 
 
 if __name__ == '__main__':
-    app.run(port=8000, host="127.0.0.1")
+    app.run(port=8000, host='127.0.0.1')
