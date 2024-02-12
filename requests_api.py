@@ -12,3 +12,6 @@ response = requests.get(url, params=params)
 
 # Print the response
 print(response.json())
+
+response=response.json()
+print(response['probabilities'])
